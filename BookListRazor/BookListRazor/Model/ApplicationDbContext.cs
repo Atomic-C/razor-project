@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookListRazor.Book
+namespace BookListRazor.Model
 {
     public class ApplicationDbContext : DbContext
     {
@@ -13,7 +13,6 @@ namespace BookListRazor.Book
         {
 
         }
-
         public DbSet<Book> Book { get; set; } // To add a model the database inside dbcontext we need this as an entry.
     }
 }
