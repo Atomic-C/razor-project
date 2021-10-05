@@ -27,8 +27,8 @@ namespace BookListRazor.Pages.BookList
         {
             if (ModelState.IsValid)
             {
-               await _db.Book.AddAsync(Book);
-               await _db.SaveChangesAsync();
+               await _db.Book.AddAsync(Book); // The book is in a queue, sort of.
+               await _db.SaveChangesAsync(); // Now it's saved to the database. Only thing I don't get is this asyncronous stuff.
                 return RedirectToPage("Index");
             }
             else
