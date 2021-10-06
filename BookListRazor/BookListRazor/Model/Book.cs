@@ -13,6 +13,6 @@ namespace BookListRazor.Model
         [Required]
         public int BookName { get; set; }
         public int Author { get; set; }
-        public string ISBN { get; set; }
+        public int ISBN { get; set; }
     }
 }

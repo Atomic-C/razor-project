@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookListRazor.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,19 @@ namespace BookListRazor.Pages.BookList
         public async Task OnGetAsync() // Async will let us run multiple tasks at a time until they're awaiting.
         {
             Books = await _db.Book.ToListAsync(); // We're storing all the books inside the IEnumerable after extracting them from database.
+        }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var book = await _db.Book.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            _db.Book.Remove(book);
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage("Index"); // When we redirect to Index we reload.
         }
     }
 }
