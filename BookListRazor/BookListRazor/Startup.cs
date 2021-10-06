@@ -22,6 +22,9 @@ namespace BookListRazor
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             // The above is the configuration we have to do to incldue EF inside the configuration pipeline
+
+            services.AddControllersWithViews();
+
             services.AddRazorPages().AddRazorRuntimeCompilation(); // added runtime compilation for refresh changes
         }
 
@@ -48,6 +51,7 @@ namespace BookListRazor
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
