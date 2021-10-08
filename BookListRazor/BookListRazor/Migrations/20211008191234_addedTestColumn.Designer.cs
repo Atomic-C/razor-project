@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookListRazor.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211005224309_ResetPerformed")]
-    partial class ResetPerformed
+    [Migration("20211008191234_addedTestColumn")]
+    partial class addedTestColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,9 @@ namespace BookListRazor.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ISBN")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Test")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

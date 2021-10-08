@@ -37,7 +37,7 @@ namespace BookListRazor.Pages.BookList
             }
             return Page();
         }
-        public async Task<IActionResult> OnPost(Book bookObj)
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {

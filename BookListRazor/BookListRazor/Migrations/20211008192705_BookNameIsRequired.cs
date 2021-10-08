@@ -2,17 +2,19 @@
 
 namespace BookListRazor.Migrations
 {
-    public partial class RollBack : Migration
+    public partial class BookNameIsRequired : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
+            migrationBuilder.AlterColumn<string>(
                 name: "BookName",
                 table: "Book",
-                type: "int",
+                type: "nvarchar(max)",
                 nullable: false,
+                defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(max)",
+                oldNullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -21,9 +23,9 @@ namespace BookListRazor.Migrations
                 name: "BookName",
                 table: "Book",
                 type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int");
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
         }
     }
 }

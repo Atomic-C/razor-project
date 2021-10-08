@@ -2,15 +2,15 @@
 
 namespace BookListRazor.Migrations
 {
-    public partial class FixedBookNameTostring3 : Migration
+    public partial class changedTestFromIntToString : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "BookName",
+                name: "Test",
                 table: "Book",
                 type: "nvarchar(max)",
-                nullable: false,
+                nullable: true,
                 oldClrType: typeof(int),
                 oldType: "int");
         }
@@ -18,12 +18,14 @@ namespace BookListRazor.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<int>(
-                name: "BookName",
+                name: "Test",
                 table: "Book",
                 type: "int",
                 nullable: false,
+                defaultValue: 0,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(max)",
+                oldNullable: true);
         }
     }
 }
